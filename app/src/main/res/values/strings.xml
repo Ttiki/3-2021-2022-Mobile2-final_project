@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Characers</string>
+    <string name="welcome">Welcome</string>
+    <string name="listCar">List caracters</string>
+    <string name="nomPrenom">By Clément Combier</string>
+    <string name="imgContentDesc">Image of Rick Sanchez</string>
+</resources>
