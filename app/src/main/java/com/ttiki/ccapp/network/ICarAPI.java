@@ -2,6 +2,7 @@ package com.ttiki.ccapp.network;
 
 import com.ttiki.ccapp.model.Caracter;
 import com.ttiki.ccapp.model.CaracterDetail;
+import com.ttiki.ccapp.model.Episode;
 
 import java.util.List;
 
@@ -14,5 +15,8 @@ public interface ICarAPI {
     Call<List<Caracter>> getAllCaracters();
 
     @GET("characters/{idCharacter}/")
-    Call<List<CaracterDetail>> getCharacterById(@Path("idCharacter") int id);
+    Call<CaracterDetail> getCharacterById(@Path("idCharacter") int id);
+
+    @GET("characters/{idCharacter}/episodes")
+    Call<List<Episode>> getEpisodesOfCharacter(@Path("idCharacter") int id);
 }

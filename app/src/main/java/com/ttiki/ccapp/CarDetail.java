@@ -41,12 +41,12 @@ public class CarDetail extends AppCompatActivity {
                 .baseUrl("https://623b4baf2e056d1037f07a74.mockapi.io/")
                 .build();
         ICarAPI service = retrofit.create(ICarAPI.class);
-        Call<List<CaracterDetail>> caractersCall = service.getCharacterById(id);
+        Call<CaracterDetail> caractersCall = service.getCharacterById(id);
 
-        caractersCall.enqueue(new Callback<List<CaracterDetail>>() {
+        caractersCall.enqueue(new Callback<CaracterDetail>() {
             @Override
-            public void onResponse(Call<List<CaracterDetail>> call, Response<List<CaracterDetail>> response) {
-                CaracterDetail cd = response.body().get(0);
+            public void onResponse(Call<CaracterDetail> call, Response<CaracterDetail> response) {
+                CaracterDetail cd = response.body();
 
                 Log.d("Log", cd.getName() + " has been selected. Here's its information");
 
@@ -62,7 +62,7 @@ public class CarDetail extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<CaracterDetail>> call, Throwable t) {
+            public void onFailure(Call<CaracterDetail> call, Throwable t) {
                 Log.d("Log", "ERROR! COULDN'T RETRIEVE DATA FROM API!!!");
                 System.out.println("> Call : " + call);
                 System.out.println("> Throwable : " + t);
